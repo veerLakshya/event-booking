@@ -1,6 +1,2 @@
 GET http://localhost:4040/events
 Content-Type: application/json
-
-{
-    
-}

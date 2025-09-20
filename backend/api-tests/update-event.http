@@ -5,5 +5,5 @@ Content-Type: application/json
   "name": "Updated Event Name!",
   "date": "2024-12-31T20:00:00Z",
   "location": "Updated Location",
-  "description": "This is an updated description for the event."
+  "description": "This is an updated description of the event."
 }

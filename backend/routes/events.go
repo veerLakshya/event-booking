@@ -2,6 +2,7 @@ package routes
 
 import (
 	"backend/models"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -107,6 +108,7 @@ func updateEvent(ctx *gin.Context) {
 	err = updatedEvent.Update()
 
 	if err != nil {
+		fmt.Println(err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Could not update the event.",
 		})

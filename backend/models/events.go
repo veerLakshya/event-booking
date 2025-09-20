@@ -44,7 +44,7 @@ func (e Event) Save() error {
 func (event Event) Update() error {
 	query := `
 	UPDATE events
-	SET name = ?, desciption = ?, location = ?, dateTime = ?
+	SET name = ?, description = ?, location = ?, dateTime = ?
 	WHERE id = ?
 	`
 	stmt, err := db.DB.Prepare(query)
