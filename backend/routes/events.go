@@ -121,7 +121,6 @@ func updateEvent(ctx *gin.Context) {
 }
 
 func deleteEvent(ctx *gin.Context) {
-	fmt.Println("delete fn called")
 	eventId, err := strconv.ParseInt(ctx.Param("id"), 10, 64)
 
 	if err != nil {
