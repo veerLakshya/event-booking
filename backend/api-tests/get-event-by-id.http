@@ -1,0 +1,2 @@
+GET http://localhost:4040/events/1
+Accept: application/json
