@@ -2,6 +2,7 @@ package routes
 
 import (
 	"backend/models"
+	"backend/utils"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -55,7 +56,17 @@ func login(ctx *gin.Context) {
 		return
 	}
 
+	token, err := utils.GenerateToken(user.Email, user.ID)
+
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Could not authenticate user.",
+		})
+		return
+	}
+
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "Login Successful!",
+		"token":   token,
 	})
 }
