@@ -55,7 +55,7 @@ func createEvent(ctx *gin.Context) {
 		return
 	}
 
-	err := utils.VerifyToken(token)
+	userId, err := utils.VerifyToken(token)
 
 	if err != nil {
 		ctx.JSON(http.StatusUnauthorized, gin.H{
@@ -75,10 +75,7 @@ func createEvent(ctx *gin.Context) {
 		return
 	}
 
-	// TODO: update later
-	event.ID = 1
-	event.UserID = 1
-
+	event.UserID = userId
 	err = event.Save()
 
 	if err != nil {
