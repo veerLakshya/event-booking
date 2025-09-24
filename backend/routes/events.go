@@ -2,6 +2,7 @@ package routes
 
 import (
 	"backend/models"
+	"backend/utils"
 	"fmt"
 	"net/http"
 	"strconv"
@@ -54,9 +55,18 @@ func createEvent(ctx *gin.Context) {
 		return
 	}
 
+	err := utils.VerifyToken(token)
+
+	if err != nil {
+		ctx.JSON(http.StatusUnauthorized, gin.H{
+			"message": "Not authorized.",
+		})
+		return
+	}
+
 	var event models.Event
 
-	err := ctx.ShouldBindJSON(&event)
+	err = ctx.ShouldBindJSON(&event)
 
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
