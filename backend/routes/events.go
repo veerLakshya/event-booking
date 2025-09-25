@@ -2,12 +2,10 @@ package routes
 
 import (
 	"backend/models"
-	"backend/utils"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
-
-	"github.com/gin-gonic/gin"
 )
 
 func getEvent(ctx *gin.Context) {
@@ -46,27 +44,10 @@ func getEvents(ctx *gin.Context) {
 }
 
 func createEvent(ctx *gin.Context) {
-	token := ctx.Request.Header.Get("Authorization")
-
-	if token == "" {
-		ctx.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Not authorized",
-		})
-		return
-	}
-
-	userId, err := utils.VerifyToken(token)
-
-	if err != nil {
-		ctx.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Not authorized.",
-		})
-		return
-	}
 
 	var event models.Event
 
-	err = ctx.ShouldBindJSON(&event)
+	err := ctx.ShouldBindJSON(&event)
 
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
@@ -74,6 +55,8 @@ func createEvent(ctx *gin.Context) {
 		})
 		return
 	}
+
+	userId := ctx.GetInt64("userId")
 
 	event.UserID = userId
 	err = event.Save()

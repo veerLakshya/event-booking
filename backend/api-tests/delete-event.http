@@ -1,1 +1,2 @@
-DELETE http://localhost:4040/events/3
+DELETE http://localhost:4040/events/1
+Authorization: dafsdfa;l

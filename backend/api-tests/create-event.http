@@ -1,9 +1,9 @@
 POST http://localhost:4040/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzU4NzY0MzIyLCJ1c2VySWQiOjB9.LJEkDa4rijiZ69U_CqCBFSz0Y62ayIb39bBkDww4p-k
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzU4NzY0OTUwLCJ1c2VySWQiOjF9.WYcT2dKmVbQsSa17qaoOuMK1BXeWk_t_5YtRJ-OH98I
 
 {
-    "name": "Sample Event 1",
+    "name": "Sample Event 1 by testuser1",
     "description": "This is a sample event description.",
     "location": "Sample Location",
     "dateTime": "2024-12-31T20:00:00Z",
